@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    
+}
+
+#top-fixed {
+    background: #00797F;
+    color: white;
+    padding: 10px 15px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    max-width: 100%;
+    height: 5vh;
+}
+
+#top-fixed ul {
+    display: flex;
+    padding: 0 8vw;
+   
+}
+
+#top-fixed li {
+    list-style: none;
+    padding: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+#top-fixed li:first-of-type {
+    margin-right: auto;
+    position: relative
+}
+
+#top-fixed li:first-of-type:hover #popdown {
+   opacity: 1;
+   pointer-events:initial;
+}
+
+#top-fixed li:first-of-type div {
+    position: absolute;
+    background: white;
+    padding: 10px 5px;
+    border-radius: 10px;
+    top: 30px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+#top-fixed li:first-of-type div a {
+    text-transform: none;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    margin-top: 10px;
+    height: 10vh;
+}
+
+#top-fixed li:first-of-type::before {
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    position: absolute;
+    content: '';
+    background: white;
+    width: 10px;
+    height: 10px;
+    top: 10px;
+    right: -10px;
+}
+
+#top-fixed li:nth-of-type(3) {
+    color: black;
+    background: white;
+    border-radius: 30px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: 700;
+   transition: all 0.2s ease
+}
+
+#top-fixed li:nth-of-type(3):hover {
+    background: rgba(255,255,255, 0.7)
+}
+
+#top-fixed li:nth-of-type(4) {
+    color: black;
+    background: white;
+    border-radius: 30px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+#top-fixed li:nth-of-type(4):hover {
+    padding: 10px 20px;
+    margin: 0;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #00B44D;
+}
+
+#navbar ul {
+    display: flex;
+    align-items: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 20px;
+    color: #00a547;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: #00a547;
+}
+
+#navbar img {
+    max-width: 18vw;
+}
+
+#banner {
+    height: 55vh;
+    background-image: url('https://cdn.pixabay.com/photo/2018/08/12/08/01/school-3600324_960_720.jpg');
+    background-size: cover;
+    position:relative;
+    z-index: -1;
+    border-bottom: 2px solid #00797F;
+    margin-bottom: 5vh;
+}
+
+#layer {
+    position: absolute;
+    background: rgba(0, 180, 77, 0.4);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#banner-text {
+    max-width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#banner-text h1 {
+    color: white;
+    z-index: 1;
+    font-family: 'Marck Script', cursive;
+    font-size: 44px;
+    max-width: 85%;
+}
+
+#banner-text h2 {
+    color: white;
+    z-index: 1;
+    font-size: 30px;
+    max-width: 85%;
+}
+
+.text-headline {
+    text-align: center;
+}
+
+.showcase-green {
+    max-width: 30vw;
+    outline: 2px solid #00B44D;
+}
+
+body {
+   height: 200vh; 
+}
+
