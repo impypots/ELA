@@ -84,7 +84,7 @@
 }
 
 #top-fixed li:first-of-type::before {
-    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    clip-path: polygon(0% 15%, 20% 0%, 50% 50%, 80% 0%, 100% 15%, 50% 90%);
     position: absolute;
     content: '';
     background: white;
@@ -130,18 +130,31 @@
 }
 
 .highlight {
-    background:#F58634;
-    padding: 10px;
     color: white;
-    border-radius: 50px;
 }
 
-.highlight:hover {
-    text-decoration: none;
+.highlight:after {
+    content: '';
+    position: absolute;
+    background: #00B44D;
+    bottom: 20%;
+    left:10%;
+    height: 60%;
+    width: 80%;
+    border-radius: 10px 100px / 120px;
+    z-index: -1;
+    transition: width 0.3s ease-in-out;
 }
+
+
 
 .unhighlight {
-    color: #00a547;
+    color: #00797F;
+    transition: color 0.3s ease-in-out;
+}
+
+#navbar li:hover .unhighlight {
+    color: white;
 }
 
 #navbar ul {
@@ -152,19 +165,38 @@
 #navbar li {
     list-style: none;
     padding: 20px;
-    color: #00a547;
+    color: black;
     font-size: 1.2em;
     cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.unhighlight:after {
+    content: '';
+    position: absolute;
+    background: #00797f;
+    bottom: 20%;
+    left:5%;
+    height: 60%;
+    width: 0%;
+    border-radius: 10px 100px / 120px;
+    z-index: -1;
+    transition: width 0.3s ease-in-out;
 }
 
 #navbar a {
     text-decoration: none;
+    font-family: 'Poppins', sans-serif;
 }
 
+#navbar li:hover {
+    color: white;
+}
 
-
-#navbar ul > li:hover {
-    text-decoration: underline;
+#navbar li:not(#navbar li:nth-of-type(2)):hover a:after {
+    width: 100%;
+    
 }
 
 #navbar img {
@@ -173,17 +205,24 @@
 
 #navbar ul li {
     position: relative;
+    
+}
+
+#navbar li:hover .triangle:before {
+    background: white;
 }
 
 .triangle:before {
-    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    /* clip-path: polygon(0% 0%, 100% 0%, 50% 100%); */
+    clip-path: polygon(0% 15%, 20% 0%, 50% 50%, 80% 0%, 100% 15%, 50% 90%);
     position: absolute;
     content: '';
-    background: #00B44D;
+    background: #00797F;
     width: 10px;
     height: 10px;
     top: 44%;
     right: 5px;
+    transition: background 0.3s ease-in-out;
 }
 
 #navbar ul li .sub-menu {
@@ -191,7 +230,7 @@
     top: 85%;
     left: 10%;
     max-width: 250px;
-    min-width: 14ch;
+    min-width: 15ch;
     opacity: 0;
     pointer-events: none;
     background: white;
@@ -199,6 +238,8 @@
     border-radius: 10px;
     padding:15px;
     line-height: 30px;
+    transition: 0.3s ease opacity;
+    animation-delay: 0.3s;
 }
 
 .sub-menu > a {
@@ -214,7 +255,7 @@
 
 #navbar ul li:hover .sub-menu {
     opacity: 1;
-    
+    animation-delay: 0.3s;
     pointer-events:initial;
 }
 
@@ -490,6 +531,22 @@
     
 }
 
+#testimonial-container {
+    position: relative;
+    perspective: 1000px;
+}
+
+.container .slide-container .slide {
+    border-radius: 5px;
+    background:#fff;
+    box-shadow: 0 5px 10px #3337;
+    width: 450px;
+    padding: 20px;
+    margin: 10px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
 .program-nav {
     background: white;
     min-height: 100vh;
@@ -732,24 +789,25 @@
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid black;
     z-index: 1;
     overflow-x: hidden;
-    background: rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.2);
 }
 
 #test-navbanner li {
     list-style: none;
-    font-family: 'Lora', serif;
-    font-weight: 100;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
     min-height: 10vh;
+    font-size: 1.1rem;
     display: flex;
     width: 20%;
     align-items: center;
     justify-content: center;
     transition: 0.2s ease-in all;
     cursor: pointer;
-    color: white;
+    color: black;
 }
 
 #test-navbanner li:hover {
@@ -758,7 +816,7 @@
 }
 
 #test-navbanner li:first-child {
-    border-right: 2px solid white;
+    border-right: 2px solid black;
     text-align: center;
     display: flex;
     width: 20%;
@@ -773,17 +831,9 @@
     flex-direction: column;
     height: 80vh;
     position: relative;
-    background: rgba(0,0,0,0.2);
+    
 }
 
-#test-navbanner:before {
-    position: absolute;
-    content: '';
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: -1;
-}
 
 #test-bannertext h1 {
     color: white;
