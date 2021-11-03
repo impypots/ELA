@@ -14,7 +14,7 @@
     top: 0;
     max-width: 100%;
     height: 5vh;
-    z-index: 1;
+    z-index: 5;
 }
 
 #top-fixed::before {
@@ -210,6 +210,7 @@
 
 #navbar li:hover .triangle:before {
     background: white;
+    transform: rotate(90deg);
 }
 
 .triangle:before {
@@ -222,7 +223,8 @@
     height: 10px;
     top: 44%;
     right: 5px;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform-origin: center;
 }
 
 #navbar ul li .sub-menu {
@@ -481,7 +483,7 @@
 .testimonials {
     background: #00B44D;
     min-height: 100vh;
-    z-index: -1;
+    z-index: 1;
     margin-top: 15vh;
     position: relative;
 }
@@ -531,12 +533,28 @@
     
 }
 
-#testimonial-container {
+.testimonials > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 70px;
+    min-height: 80vh;
+}
+
+.testimonials img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.testimonial-container {
     position: relative;
     perspective: 1000px;
 }
 
-.container .slide-container .slide {
+.testimonial-container .slide-container .slide {
     border-radius: 5px;
     background:#fff;
     box-shadow: 0 5px 10px #3337;
@@ -545,7 +563,94 @@
     margin: 10px;
     position: relative;
     transform-style: preserve-3d;
+    animation: slide 0.4s linear;
 }
+
+@keyframes slide {
+    0% {
+        transform: rotateX(180deg);
+    }
+}
+
+.testimonial-container .slide-container .slide > * {
+    animation: slideContent 0.2s linear 0.4s backwards;
+}
+
+@keyframes slideContent {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+.testimonial-container .slide-container .slide .icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 80px;
+    color: #00B44D;
+}
+
+.testimonial-container .slide-container .slide .user {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-container .slide-container .slide .user .user-info h3 {
+    color: #333;
+    font-size: 20px;
+}
+
+.testimonial-container .slide-container .slide .user .user-info .stars i {
+    color: #00B44D;
+    font-size: 15px;
+}
+
+.testimonial-container .slide-container .slide .testimonial-text {
+    color: #333;
+    font-size: 14px;
+    padding-top: 15px;
+    font-style: italic;
+}
+
+.testimonial-container .slide-container {
+    display: none;
+}
+
+.testimonial-container .slide-container.active {
+    display: block;
+}
+
+.testimonial-container #next, .testimonial-container #prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px #3337;
+    z-index: 1;
+}
+
+.testimonial-container #next {
+    right: -70px;
+}
+
+.testimonial-container #prev {
+    left: -70px;
+}
+
+.testimonial-container #next:hover, .testimonial-container #prev:hover {
+    background: #333;
+    color: #fff;
+}
+
 
 .program-nav {
     background: white;
@@ -557,6 +662,7 @@
     position: absolute;
     content: '';
     background: white;
+    z-index: 2;
     width: 10%;
     height: 5vh;
     top: -5vh;
@@ -568,6 +674,7 @@
     position: absolute;
     content: '';
     background: white;
+    z-index: 2;
     width: 10%;
     height: 5vh;
     top: -5vh;
@@ -699,7 +806,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10vh 0;
+    margin: 10vh 0;
 }
 
 .tuition-assistance button {
@@ -726,6 +833,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 .footer-logo img {
